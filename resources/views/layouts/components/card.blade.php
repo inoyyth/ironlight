@@ -3,6 +3,8 @@
     'border' => true,
     'shadow' => 'default',
     'hover' => false,
+    'theme' => 'default',
+    'rounded' => true,
 ])
 
 @php
@@ -23,9 +25,18 @@
         '2xl' => 'shadow-2xl',
     ];
     
-    $classes = 'bg-white rounded-lg';
+    $themeClasses = [
+        'default' => 'bg-white',
+        'dark' => 'bg-gray-800',
+        'warning' => 'bg-[#FFBC47]',
+    ];
+    $classes = '';
+    if ($rounded) {
+        $classes .= ' rounded-lg';
+    }
     $classes .= ' ' . $paddingClasses[$padding];
     $classes .= ' ' . $shadowClasses[$shadow];
+    $classes .= ' ' . $themeClasses[$theme];
     if ($border) {
         $classes .= ' border border-gray-200';
     }
