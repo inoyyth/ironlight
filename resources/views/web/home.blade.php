@@ -7,28 +7,48 @@
         <div class="absolute inset-0 w-full h-full" id="particles-js">
             <canvas class="w-full h-full"></canvas>
         </div>
-        <div class="h-full w-full relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full w-full relative">
             <div class="absolute top-[25%] w-full text-center text-white font-bold text-[40px]">Senior technical delivery</div>
-            <div class="absolute bottom-[60px]  w-full text-center text-white">
-                <div class="text-4xl md:text-6xl font-bold mb-4">Jäävad ja pühad mõisted</div>
-                <div class="text-2xl md:text-4xl mb-4">on maa, kus ma elan</div>
-                <div class="text-2xl md:text-4xl mb-4">ja keel, mida kõnelen.</div>
-                <div class="text-xl md:text-2xl font-semibold">Valdo Pant</div>
+            <div class="absolute bottom-[70px] text-left text-white">
+                <div class="text-sm md:text-6xl font-bold mb-2 text-[#F9B236]">What we do</div>
+                <ul class="list-none flex flex-col gap-1 text-lg">
+                    <li>We design and build new systems.</li>
+                    <li>We rebuild systems that matter.</li>
+                    <li>We integrate things that were never meant to fit.</li>
+                    <li>We take over live systems and make them stable.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section id="stats" class="py-20 bg-white relative">
+    <div class="max-w-7xl mx-auto p-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-3 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="text-4xl font-normal mb-2">100+ Project</div>
+                <div class="text-[#999999]">Global Coverage</div>
+            </div>
+            <div>
+                <div class="text-4xl font-normal mb-2">50,000+ Users</div>
+                <div class="text-[#999999]">Trusted Daily</div>
+            </div>
+            <div>
+                <div class="text-4xl font-normal mb-2">4.8 Rating</div>
+                <div class="text-[#999999]">Loved by customers</div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Features Section -->
-<section id="features" class="relative py-20 bg-white">
+<section id="features" class="relative py-20 bg-black">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Powerful Features
-            </h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                Everything you need to build and scale your web application.
-            </p>
+        <div class="mb-16">
+            <h3 class="sm:text-4xl md:text-base font-bold text-[#F9B236] mb-4">
+                From Problem to Solution
+            </h3>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -109,30 +129,6 @@
                     <p class="text-gray-600">Comprehensive analytics and insights to help you make data-driven decisions.</p>
                 </div>
             </x-card>
-        </div>
-    </div>
-</section>
-
-<!-- Stats Section -->
-<section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <div class="text-4xl font-bold text-blue-600 mb-2">10K+</div>
-                <div class="text-gray-600">Active Users</div>
-            </div>
-            <div>
-                <div class="text-4xl font-bold text-green-600 mb-2">99.9%</div>
-                <div class="text-gray-600">Uptime</div>
-            </div>
-            <div>
-                <div class="text-4xl font-bold text-purple-600 mb-2">24/7</div>
-                <div class="text-gray-600">Support</div>
-            </div>
-            <div>
-                <div class="text-4xl font-bold text-yellow-600 mb-2">50ms</div>
-                <div class="text-gray-600">Avg Response</div>
-            </div>
         </div>
     </div>
 </section>

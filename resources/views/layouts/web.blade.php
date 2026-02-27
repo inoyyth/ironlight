@@ -29,10 +29,11 @@
         <!-- Main Content -->
         <main class="h-[calc(100vh-60px)] pt-[100px]">
             @yield('content')
+            <!-- Footer -->
+            @include('layouts.includes.footer')
         </main>
 
-        <!-- Footer -->
-        @include('layouts.includes.footer')
+      
     </div>
 
     <!-- Scripts -->
