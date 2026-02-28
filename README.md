@@ -5,6 +5,12 @@ A modern Laravel application showcasing senior technical delivery with clean arc
 - homepage: `localhost:{port}`
 - admin: `localhost:{port}/admin/login`
 
+Demo site:
+
+- homepage: `https://ironlight.fastevalbpe.com`
+- admin: `https://ironlight.fastevalbpe.com/admin/login`
+- credentials: `admin@ironlight.com` / `password123`
+
 ## Tech Stack
 
 - **Backend**: Laravel 12.0 with PHP 8.2+
