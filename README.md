@@ -2,6 +2,9 @@
 
 A modern Laravel application showcasing senior technical delivery with clean architecture and modern web technologies.
 
+homepage: `localhost:{port}`
+admin: `localhost:{port}/admin/login`
+
 ## Tech Stack
 
 - **Backend**: Laravel 12.0 with PHP 8.2+
@@ -150,6 +153,13 @@ composer run test
 ```
 
 ## Frontend Development
+
+### Templating Approach
+
+- **Blade Templates**: Laravel's native templating engine for server-side rendering
+- **Component-Based Architecture**: Reusable Blade components (`x-card`, `x-button`, etc) for consistent UI
+- **Tailwind CSS Integration**: Utility-first CSS approach for rapid styling
+- **Responsive Design**: Mobile-first approach with Tailwind's responsive utilities
 
 ### Tailwind CSS v4 Features
 

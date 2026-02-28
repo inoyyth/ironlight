@@ -8,8 +8,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
-    
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <!-- CSRF Token -->
@@ -58,10 +58,6 @@
                         </svg>
                         <span>Stats</span>
                     </a>
-                    <!-- Divider -->
-                    <div class="border-t border-gray-800 pt-4 mt-4">
-                        <p class="text-xs text-gray-500 uppercase tracking-wider px-3 mb-2">System</p>
-                    </div>
                 </nav>
                  
                 <!-- User Profile -->
