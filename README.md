@@ -2,8 +2,8 @@
 
 A modern Laravel application showcasing senior technical delivery with clean architecture and modern web technologies.
 
-homepage: `localhost:{port}`
-admin: `localhost:{port}/admin/login`
+- homepage: `localhost:{port}`
+- admin: `localhost:{port}/admin/login`
 
 ## Tech Stack
 
