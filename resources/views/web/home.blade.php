@@ -89,6 +89,17 @@
     </div>
 </section>
 
+<!-- Insights Section -->
+<section id="insights" class="relative pt-10 pb-10 lg:pt-20 lg:pb-20 bg-white" style="background-image:url('{{ asset('images/bg_parallax.png') }}')">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+            <h3 class="text-2xl lg:text-base font-bold text-[#F9B236] mb-4">
+                Insights
+            </h3>
+        </div>
+    </div>
+</section>
+
 <!-- CTA Section -->
 <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
