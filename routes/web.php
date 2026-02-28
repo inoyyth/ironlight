@@ -5,6 +5,7 @@ use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SeoController;
+use App\Http\Controllers\Admin\BannerController;
 
 // Web Routes
 Route::get('/', [HomePageController::class, 'index'])->name('home');
@@ -28,6 +29,11 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::middleware('auth:admin')->prefix('seos')->name('seos.')->group(function () {
         Route::get('/', [SeoController::class, 'index'])->name('index');
         Route::post('/', [SeoController::class, 'update'])->name('update');
+    });
+    // banner routes
+    Route::middleware('auth:admin')->prefix('banners')->name('banners.')->group(function () {
+        Route::get('/', [BannerController::class, 'index'])->name('index');
+        Route::put('/', [BannerController::class, 'update'])->name('update');
     });
     // product routes
     Route::middleware('auth:admin')->prefix('products')->name('products.')->group(function () {
