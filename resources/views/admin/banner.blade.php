@@ -84,14 +84,17 @@
                             <textarea
                                 id="description"
                                 name="description"
-                                rows="4"
-                                class="form-input w-full @error('description') border-red-500 @enderror"
-                                placeholder="Enter banner description"
+                                rows="6"
+                                class="form-input w-full ckeditor @error('description') border-red-500 @enderror"
+                                placeholder="Enter banner description with rich text formatting..."
                                 required
                             >{{ old('description', $data->description ?? '') }}</textarea>
                             @error('description')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
+                            <p class="mt-1 text-sm text-gray-500">
+                                Rich text editor supports formatting, links, images, tables, and more.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -204,4 +207,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+@include('admin.components.ckeditor')
 @endsection

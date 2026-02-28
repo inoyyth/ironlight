@@ -8,15 +8,9 @@
             <canvas class="w-full h-full"></canvas>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full w-full relative">
-            <div class="absolute top-[25%] w-full text-center text-white font-bold text-[40px]">Senior technical delivery</div>
+            <div class="absolute top-[25%] w-full text-center text-white font-bold text-[40px]">{{ $banner->title }}</div>
             <div class="absolute bottom-[70px] text-left text-white">
-                <div class="text-sm md:text-6xl font-bold mb-2 text-[#F9B236]">What we do</div>
-                <ul class="list-none flex flex-col gap-1 text-lg">
-                    <li>We design and build new systems.</li>
-                    <li>We rebuild systems that matter.</li>
-                    <li>We integrate things that were never meant to fit.</li>
-                    <li>We take over live systems and make them stable.</li>
-                </ul>
+                <div class="mb-4 banner-description">{!! $banner->description !!}</div>
             </div>
         </div>
     </div>

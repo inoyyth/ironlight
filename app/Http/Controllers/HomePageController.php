@@ -13,10 +13,9 @@ class HomePageController extends Controller
      */
     public function index()
     {
+        $banner = \App\Models\Banner::first();
         return view('web.home', [
-            'title' => 'Welcome to IronLight',
-            'description' => 'Modern web application platform built with cutting-edge technology',
-            'keywords' => 'laravel, web application, modern platform, technology'
+            'banner' => $banner
         ]);
         // return view('welcome');
     }

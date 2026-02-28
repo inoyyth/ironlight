@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ImageUploadController;
 
 // Web Routes
 Route::get('/', [HomePageController::class, 'index'])->name('home');
@@ -35,6 +36,9 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
         Route::get('/', [BannerController::class, 'index'])->name('index');
         Route::put('/', [BannerController::class, 'update'])->name('update');
     });
+    
+    // image upload for ckeditor
+    Route::middleware('auth:admin')->post('/upload-image', [ImageUploadController::class, 'upload'])->name('upload.image');
     // product routes
     Route::middleware('auth:admin')->prefix('products')->name('products.')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
