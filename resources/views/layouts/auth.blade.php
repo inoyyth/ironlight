@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <!-- Meta Tags -->
     <meta name="description" content="{{ $description ?? 'Authentication page' }}">

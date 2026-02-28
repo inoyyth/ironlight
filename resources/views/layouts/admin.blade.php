@@ -10,7 +10,7 @@
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
     
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -22,12 +22,7 @@
             <div class="flex flex-col h-full">
                 <!-- Logo -->
                 <div class="flex items-center justify-center h-16 border-b border-gray-800">
-                    <div class="flex items-center space-x-2">
-                        <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">I</span>
-                        </div>
-                        <span class="text-xl font-semibold">IronLight</span>
-                    </div>
+                    <img src="{{ asset('images/logo.png') }}" alt="IronLight" >
                 </div>
 
                 <!-- Navigation -->
@@ -40,12 +35,12 @@
                         <span>Dashboard</span>
                     </a>
 
-                    <!-- Users -->
-                    <a href="{{ route('admin.users.index') }}" class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-colors {{ request()->routeIs('admin.users.*') ? 'bg-gray-800 text-white' : '' }}">
+                    <!-- SEO -->
+                    <a href="{{ route('admin.seos.index') }}" class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-colors {{ request()->routeIs('admin.seos.*') ? 'bg-gray-800 text-white' : '' }}">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
-                        <span>Users</span>
+                        <span>SEO</span>
                     </a>
 
                     <!-- Products -->
@@ -79,7 +74,7 @@
                             <p class="text-sm font-medium text-white">{{ auth()->user()->name }}</p>
                             <p class="text-xs text-gray-400">{{ auth()->user()->email }}</p>
                         </div>
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ route('admin.logout') }}">
                             @csrf
                             <button type="submit" class="text-gray-400 hover:text-white transition-colors">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -183,6 +178,7 @@
 
         function toggleDarkMode() {
             document.body.classList.toggle('dark');
+            console.log("dark mode toggled");
             // Save preference to localStorage
             if (document.body.classList.contains('dark')) {
                 localStorage.setItem('darkMode', 'true');

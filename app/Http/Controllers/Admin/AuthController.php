@@ -10,11 +10,21 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        
+    }
+
     /**
      * Show the admin login form.
      */
     public function showLoginForm()
     {
+        // If admin is already logged in, redirect to dashboard
+        if (Auth::guard('admin')->check()) {
+            return redirect()->route('admin.dashboard');
+        }
+
         return view('admin.auth.login', [
             'title' => 'Admin Login - IronLight',
             'description' => 'Secure admin login portal'

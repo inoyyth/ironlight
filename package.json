@@ -4,7 +4,9 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "sail-dev": "./vendor/bin/sail up -d && ./vendor/bin/sail exec laravel.test npm run dev",
+        "sail-start": "./start-dev.sh"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.2.1",

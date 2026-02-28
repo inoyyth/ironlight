@@ -111,10 +111,10 @@
             Join thousands of satisfied users who have transformed their business with IronLight.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <x-button variant="light" size="lg" href="{{ route('register') }}">
+            <x-button variant="light" size="lg" href="">
                 Start Free Trial
             </x-button>
-            <x-button variant="primary" size="lg" href="{{ route('contact') }}">
+            <x-button variant="primary" size="lg" href="">
                 Contact Sales
             </x-button>
         </div>

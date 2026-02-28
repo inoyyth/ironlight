@@ -15,16 +15,14 @@
                 <!-- Desktop Navigation -->
                 <!-- <div class="hidden md:flex items-center space-x-8">
                     <a href="{{ route('home') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
-                    <a href="{{ route('about') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
-                    <a href="{{ route('services') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Services</a>
-                    <a href="{{ route('contact') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                   
                 </div> -->
 
                 <!-- Auth Buttons -->
                 <div class="hidden md:flex items-center space-x-4">
                     @guest
-                        <!-- <a href="{{ route('login') }}" class="text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors">Sign In</a> -->
-                        <a href="{{ route('register') }}" class="bg-white text-black px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">Contact Us</a>
+                        <!-- <a href="" class="text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors">Sign In</a> -->
+                        <a href="" class="bg-white text-black px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">Contact Us</a>
                     @else
                         <div class="relative">
                             <button onclick="toggleUserMenu()" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
@@ -37,10 +35,10 @@
                                 </svg>
                             </button>
                             <div id="userMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1">
-                                <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
-                                <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
-                                <a href="{{ route('settings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
-                                <form method="POST" action="{{ route('logout') }}">
+                                <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
+                                <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                                <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                                <form method="POST" action="">
                                     @csrf
                                     <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign Out</button>
                                 </form>
@@ -62,20 +60,20 @@
             <!-- Mobile Navigation -->
             <div id="mobileMenu" class="hidden md:hidden pb-4">
                 <div class="flex flex-col space-y-2">
-                    <a href="{{ route('home') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="{{ route('about') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">About</a>
-                    <a href="{{ route('services') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Services</a>
-                    <a href="{{ route('contact') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    <a href="" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Services</a>
+                    <a href="" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
                     @guest
                         <div class="pt-2 border-t border-gray-200">
-                            <a href="{{ route('login') }}" class="block text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Sign In</a>
-                            <a href="{{ route('register') }}" class="block bg-blue-600 text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 text-center mt-2">Get Started</a>
+                            <a href="" class="block text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Sign In</a>
+                            <a href="" class="block bg-blue-600 text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 text-center mt-2">Get Started</a>
                         </div>
                     @else
                         <div class="pt-2 border-t border-gray-200">
-                            <a href="{{ route('dashboard') }}" class="block text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Dashboard</a>
-                            <a href="{{ route('profile') }}" class="block text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Profile</a>
-                            <form method="POST" action="{{ route('logout') }}">
+                            <a href="" class="block text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Dashboard</a>
+                            <a href="" class="block text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Profile</a>
+                            <form method="POST" action="">
                                 @csrf
                                 <button type="submit" class="block w-full text-left text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Sign Out</button>
                             </form>

@@ -27,10 +27,10 @@
             <div>
                 <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                 <ul class="space-y-2">
-                    <li><a href="{{ route('about') }}" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                    <li><a href="{{ route('services') }}" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-                    <li><a href="{{ route('contact') }}" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-                    <li><a href="{{ route('privacy') }}" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                    <li><a href="" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    <li><a href="" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
                 </ul>
             </div>
 

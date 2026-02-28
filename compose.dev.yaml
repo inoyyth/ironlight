@@ -1,0 +1,35 @@
+services:
+    # Add this to your main compose.yaml or use as override
+    npm-dev:
+        build:
+            context: "./vendor/laravel/sail/runtimes/8.5"
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: "${WWWGROUP}"
+        container_name: npm-dev.ironlight
+        image: "sail-8.5/app"
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        ports:
+            - "${VITE_PORT:-5173}:${VITE_PORT:-5173}"
+        environment:
+            WWWUSER: "${WWWUSER}"
+            LARAVEL_SAIL: 1
+        volumes:
+            - ".:/var/www/html"
+        networks:
+            - sail-ironlight
+        depends_on:
+            - laravel.ironlight
+        command: >
+            sh -c "
+            cd /var/www/html &&
+            if [ ! -d node_modules ]; then
+                echo 'Installing npm dependencies...'
+                npm install
+            fi &&
+            echo 'Starting npm run dev...'
+            npm run dev
+            "
+        profiles:
+            - dev

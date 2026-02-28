@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title ?? config('app.name', 'IronLight') }}</title>
+    <title>{{ seo('meta_title') }}</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -13,8 +13,11 @@
     <!-- Styles -->
     
     <!-- Meta Tags -->
-    <meta name="description" content="{{ $description ?? 'Modern web application built with Laravel' }}">
-    <meta name="keywords" content="{{ $keywords ?? 'laravel, web, application' }}">
+    <meta name="description" content="{{ seo('meta_description') }}">
+    <meta name="keywords" content="{{ seo('meta_keywords') }}">
+    <meta name="og:title" content="{{ seo('og_title') }}">
+    <meta name="og:description" content="{{ seo('og_description') }}">
+    <meta name="og:image" content="{{ seo('og_image') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
