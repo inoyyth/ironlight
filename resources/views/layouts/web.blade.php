@@ -7,7 +7,7 @@
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> -->
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
     
     <!-- Styles -->
@@ -30,7 +30,7 @@
         @include('layouts.includes.header')
 
         <!-- Main Content -->
-        <main class="h-[calc(100vh-60px)] pt-[100px]">
+        <main class="h-[calc(100vh-60px)] ">
             @yield('content')
             <!-- Footer -->
             @include('layouts.includes.footer')

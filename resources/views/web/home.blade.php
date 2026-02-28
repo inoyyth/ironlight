@@ -17,13 +17,13 @@
 </section>
 
 <!-- Stats Section -->
-<section id="stats" class="py-20 bg-white relative">
+<section id="stats" class="pt-5 pb-5 bg-white relative lg:pt-20 lg:pb-20">
     <div class="max-w-7xl mx-auto p-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-center items-center justify-center">
             @foreach($stats as $stat)
-           <div class="border-b-1 lg:border-b-0 lg:border-r lg:last:border-r-0 border-gray-300 h-[100px] flex flex-col items-center justify-center">
-                <div class="text-4xl font-normal mb-2">{{ $stat->value }} {{ $stat->name }}</div>
-                <div class="text-[#999999]">{{ $stat->description }}</div>
+           <div class="border-b last:border-b-0 border-gray-300 h-[100px] flex flex-col items-center justify-center lg:border-b-0 lg:border-r lg:last:border-r-0 ">
+                <div class="text-2xl lg:text-4xl font-normal mb-2">{{ $stat->value }} {{ $stat->name }}</div>
+                <div class="text-sm lg:text-base text-[#999999]">{{ $stat->description }}</div>
             </div>
             @endforeach
         </div>
@@ -31,15 +31,15 @@
 </section>
 
 <!-- Features Section -->
-<section id="features" class="relative py-20 bg-black">
+<section id="features" class="relative pt-10 pb-10 lg:pt-20 lg:pb-20 bg-black">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-16">
-            <h3 class="sm:text-4xl md:text-base font-bold text-[#F9B236] mb-4">
+        <div class="mb-8">
+            <h3 class="text-2xl lg:text-base font-bold text-[#F9B236] mb-4">
                 From Problem to Solution
             </h3>
         </div>
 
-        <div class="grid justify-between grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div class="flex flex-col-reverse lg:flex-row gap-8">
             <!-- Feature 1 -->
              <div class="flex flex-col gap-4">
                 <div>
@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <div class="flex justify-between gap-6 py-20">
+        <div class="flex flex-col justify-between gap-6 pt-10 lg:pt-20 lg:flex-row">
             <div class="flex-1">
                 <h3 class="sm:text-4xl md:text-base font-bold text-[#F9B236] mb-4">
                     How it feels to work with us 
@@ -79,7 +79,7 @@
             </div>
             <div class="flex-1">
                 <x-card hover="true" rounded="false" theme="warning">
-                    <div class="flex flex-col gap-2 font-bold text-5xl">
+                    <div class="flex flex-row gap-2 font-bold text-base lg:text-5xl lg:flex-col">
                         <p>No chaos</p>
                         <p>No theatre</p>
                     </div>
