@@ -8,7 +8,7 @@ use Illuminate\View\View;
 class Table extends Component
 {
     public array $headers;
-    public array $data;
+    public array $body;
     public string $emptyMessage;
     public bool $striped;
     public bool $hover;
@@ -16,14 +16,14 @@ class Table extends Component
 
     public function __construct(
         array $headers = [],
-        array $data = [],
+        array $body = [],
         string $emptyMessage = 'No data available.',
         bool $striped = false,
         bool $hover = true,
         bool $bordered = true
     ) {
         $this->headers = $headers;
-        $this->data = $data;
+        $this->body = $body;
         $this->emptyMessage = $emptyMessage;
         $this->striped = $striped;
         $this->hover = $hover;

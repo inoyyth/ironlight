@@ -1,6 +1,6 @@
 @props([
     'headers' => [],
-    'data' => [],
+    'body' => [],
     'emptyMessage' => 'No data available.',
     'striped' => false,
     'hover' => true,
@@ -22,8 +22,8 @@
         @endif
         
         <tbody class="{{ $striped ? 'divide-y divide-gray-200' : '' }} {{ $hover ? 'divide-y divide-gray-200' : '' }} bg-white">
-            @if (count($data) > 0)
-                @foreach ($data as $index => $row)
+            @if (count($body) > 0)
+                @foreach ($body as $index => $row)
                     <tr class="{{ $striped && $index % 2 === 1 ? 'bg-gray-50' : '' }} {{ $hover ? 'hover:bg-gray-50' : '' }}">
                         @foreach ($headers as $key => $header)
                             <td class="{{ $header['cellClass'] ?? 'px-6 py-4 whitespace-nowrap text-sm text-gray-900' }}">

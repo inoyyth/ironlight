@@ -16,9 +16,9 @@ class BannerController extends Controller
     public function index()
     {
         // Get first banner or create new instance
-        $banner = Banner::first() ?: new Banner();
+        $banner = Banner::select('title', 'description')->first() ?: new Banner();
         
-        return view('admin.banner', [
+        return view('admin.pages.banner', [
             'title' => 'Admin Banner - IronLight',
             'user' => Auth::guard('admin')->user(),
             'data' => $banner

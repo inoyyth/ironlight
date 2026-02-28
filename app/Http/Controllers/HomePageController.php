@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Stat;
+use App\Models\Banner;
 
 class HomePageController extends Controller
 {
@@ -13,11 +15,13 @@ class HomePageController extends Controller
      */
     public function index()
     {
-        $banner = \App\Models\Banner::first();
+        $banner = Banner::select('id', 'title', 'description')->first();
+        $stats = Stat::select('id', 'name', 'value', 'description')->get();
+        
         return view('web.home', [
-            'banner' => $banner
+            'banner' => $banner,
+            'stats' => $stats
         ]);
-        // return view('welcome');
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ImageUploadController;
+use App\Http\Controllers\Admin\StatController;
 
 // Web Routes
 Route::get('/', [HomePageController::class, 'index'])->name('home');
@@ -40,8 +41,12 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     // image upload for ckeditor
     Route::middleware('auth:admin')->post('/upload-image', [ImageUploadController::class, 'upload'])->name('upload.image');
     // product routes
-    Route::middleware('auth:admin')->prefix('products')->name('products.')->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
+    Route::middleware('auth:admin')->prefix('stats')->name('stats.')->group(function () {
+        Route::get('/', [StatController::class, 'index'])->name('index');
+        Route::get('/add', [StatController::class, 'create'])->name('create');
+        Route::get('/edit/{id}', [StatController::class, 'edit'])->name('edit');
+        Route::post('/store', [StatController::class, 'store'])->name('store');
+        Route::delete('/delete/{id}', [StatController::class, 'destroy'])->name('destroy');
     });
     // order routes
     Route::middleware('auth:admin')->prefix('orders')->name('orders.')->group(function () {

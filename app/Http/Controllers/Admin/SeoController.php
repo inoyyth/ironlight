@@ -19,7 +19,7 @@ class SeoController extends Controller
         $seoSettings = Redis::get('seo_settings');
         $seoData = $seoSettings ? json_decode($seoSettings, true) : [];
         
-        return view('admin.seo', [
+        return view('admin.pages.seo', [
             'title' => 'Admin SEO - IronLight',
             'user' => Auth::guard('admin')->user(),
             'seoData' => $seoData

@@ -27,5 +27,8 @@ class DatabaseSeeder extends Seeder
 
         // Call BannerSeeder
         $this->call(BannerSeeder::class);
+
+        // Call StatSeeder
+        $this->call(StatSeeder::class);
     }
 }

@@ -8,7 +8,7 @@
             <canvas class="w-full h-full"></canvas>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full w-full relative">
-            <div class="absolute top-[25%] w-full text-center text-white font-bold text-[40px]">{{ $banner->title }}</div>
+            <div class="absolute top-[25%] left-0 w-full text-center text-white font-bold sm:text-[10px] md:text-[40px]">{{ $banner->title }}</div>
             <div class="absolute bottom-[70px] text-left text-white">
                 <div class="mb-4 banner-description">{!! $banner->description !!}</div>
             </div>
@@ -19,19 +19,13 @@
 <!-- Stats Section -->
 <section id="stats" class="py-20 bg-white relative">
     <div class="max-w-7xl mx-auto p-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-3 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <div class="text-4xl font-normal mb-2">100+ Project</div>
-                <div class="text-[#999999]">Global Coverage</div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-center items-center justify-center">
+            @foreach($stats as $stat)
+           <div class="border-b-1 lg:border-b-0 lg:border-r lg:last:border-r-0 border-gray-300 h-[100px] flex flex-col items-center justify-center">
+                <div class="text-4xl font-normal mb-2">{{ $stat->value }} {{ $stat->name }}</div>
+                <div class="text-[#999999]">{{ $stat->description }}</div>
             </div>
-            <div>
-                <div class="text-4xl font-normal mb-2">50,000+ Users</div>
-                <div class="text-[#999999]">Trusted Daily</div>
-            </div>
-            <div>
-                <div class="text-4xl font-normal mb-2">4.8 Rating</div>
-                <div class="text-[#999999]">Loved by customers</div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
