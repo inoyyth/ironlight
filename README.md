@@ -1,59 +1,203 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# IronLight
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern Laravel application showcasing senior technical delivery with clean architecture and modern web technologies.
 
-## About Laravel
+## Tech Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Backend**: Laravel 12.0 with PHP 8.2+
+- **Frontend**: Vite with Tailwind CSS v4.2.1
+- **Database**: MySQL 8.4
+- **Cache**: Redis (Alpine)
+- **Development Environment**: Laravel Sail (Docker)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Architecture Decisions
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Laravel Sail Integration
 
-## Learning Laravel
+- **Why**: Provides consistent development environment across all machines
+- **Benefits**: Eliminates "works on my machine" issues, simplifies onboarding
+- **Services**: PHP 8.5, MySQL 8.4, Redis, Vite dev server
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Tailwind CSS v4 with Vite
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Why**: Latest version with improved performance and new features
+- **Integration**: Uses `@tailwindcss/vite` plugin for seamless development
+- **Configuration**: Custom config with Inter font and responsive breakpoints
+- **Import Strategy**: Updated to v4 syntax (`@import "tailwindcss/preflight"`)
 
-## Laravel Sponsors
+### Database & Caching Strategy
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **MySQL**: Primary database for persistent data storage
+- **Redis**: Session management and application caching
+- **Migrations**: Database schema version control
+- **Seeders**: Initial data population
 
-### Premium Partners
+## Quick Start
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Prerequisites
+
+- Docker Desktop installed and running
+- Git
+
+### Setup Instructions
+
+1. **Clone the repository**
+
+    ```bash
+    git clone <repository-url>
+    cd ironlight
+    ```
+
+2. **Install dependencies**
+
+    ```bash
+    composer install
+    npm install
+    ```
+
+3. **Environment setup**
+
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
+
+4. **Configure database** (edit `.env`):
+
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=mysql
+    DB_PORT=3306
+    DB_DATABASE=ironlight
+    DB_USERNAME=sail
+    DB_PASSWORD=password
+
+    CACHE_STORE=redis
+    REDIS_HOST=redis
+    REDIS_PORT=6379
+    ```
+
+5. **Start development environment**
+
+    ```bash
+    ./vendor/bin/sail up -d
+    ```
+
+6. **Run database migrations**
+
+    ```bash
+    ./vendor/bin/sail artisan migrate
+    ```
+
+7. **Run database seeders**
+
+    ```bash
+    ./vendor/bin/sail artisan db:seed
+    ```
+
+8. **Build frontend assets**
+    ```bash
+    ./vendor/bin/sail npm run build
+    ```
+
+## Development Commands
+
+### Using Sail
+
+```bash
+# Start all services
+./vendor/bin/sail up -d
+
+# Stop all services
+./vendor/bin/sail down
+
+# Run artisan commands
+./vendor/bin/sail artisan migrate
+./vendor/bin/sail artisan db:seed
+./vendor/bin/sail artisan tinker
+
+# Run npm commands
+./vendor/bin/sail npm run dev
+./vendor/bin/sail npm run build
+```
+
+### Composer Scripts
+
+```bash
+# Full setup (install, migrate, build)
+composer run setup
+
+# Development mode (all services running)
+composer run dev
+
+# Run tests
+composer run test
+```
+
+## Project Structure
+
+```
+├── app/                 # Application logic
+├── resources/
+│   ├── views/          # Blade templates
+│   ├── css/            # Tailwind CSS
+│   └── js/             # JavaScript
+├── database/           # Migrations and seeders
+├── routes/             # Web and API routes
+├── compose.yaml        # Docker services configuration
+├── vite.config.js      # Vite configuration
+└── tailwind.config.js  # Tailwind configuration
+```
+
+## Frontend Development
+
+### Tailwind CSS v4 Features
+
+- Updated import syntax for better performance
+- Improved CSS generation
+- Enhanced developer experience
+
+### Vite Integration
+
+- Hot module replacement during development
+- Optimized production builds
+- Asset versioning and caching
+
+## Database Management
+
+### MySQL Configuration
+
+- Container: `mysql.ironlight`
+- Port: `3306` (forwarded)
+- Volume: Persistent data storage
+
+### Redis Configuration
+
+- Container: `redis.ironlight`
+- Port: `6379` (forwarded)
+- Usage: Sessions, cache, queues
+
+## Deployment Considerations
+
+### Environment Variables
+
+- Ensure all `.env` variables are properly configured
+- Database credentials should be secured in production
+- Redis connection settings for caching
+
+### Asset Building
+
+- Run `npm run build` before deployment
+- Ensure Vite assets are properly versioned
+- Check Tailwind CSS compilation
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Follow Laravel coding standards
+2. Use Sail for consistent development environment
+3. Test database migrations before committing
+4. Ensure frontend assets build correctly
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the MIT license.
