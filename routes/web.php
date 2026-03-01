@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ImageUploadController;
 use App\Http\Controllers\Admin\StatController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\OtherController;
 
 // Web Routes
 Route::get('/', [HomePageController::class, 'index'])->name('home');
@@ -38,6 +39,20 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::middleware('auth:admin')->prefix('contacts')->name('contacts.')->group(function () {
         Route::get('/', [ContactController::class, 'index'])->name('index');
         Route::post('/', [ContactController::class, 'update'])->name('update');
+    });
+
+    // other routes
+    Route::middleware('auth:admin')->prefix('others')->name('others.')->group(function () {
+        Route::get('/', [OtherController::class, 'index'])->name('index');
+        Route::post('/', [OtherController::class, 'update'])->name('update');
+
+        Route::post('/tech', [OtherController::class, 'storeTech'])->name('tech.store');
+        Route::put('/tech/{tech}', [OtherController::class, 'updateTech'])->name('tech.update');
+        Route::delete('/tech/{tech}', [OtherController::class, 'destroyTech'])->name('tech.destroy');
+
+        Route::post('/solution', [OtherController::class, 'storeSolution'])->name('solution.store');
+        Route::put('/solution/{solution}', [OtherController::class, 'updateSolution'])->name('solution.update');
+        Route::delete('/solution/{solution}', [OtherController::class, 'destroySolution'])->name('solution.destroy');
     });
     
     // banner routes

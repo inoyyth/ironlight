@@ -28,7 +28,14 @@ class DatabaseSeeder extends Seeder
         // Call BannerSeeder
         $this->call(BannerSeeder::class);
 
+         // Call OtherSeeder
+        $this->call(OtherSeeder::class);
+
+
         // Call StatSeeder
         $this->call(StatSeeder::class);
+        
+        // Call TechSeeder
+        $this->call(TechSeeder::class);
     }
 }

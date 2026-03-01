@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 sourceEditing: {
                     allowedContent: true
                 },
-                licenseKey: ''
+                licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzM2MTkxOTksImp0aSI6IjFhMzc0ODZmLTFhZGYtNDg0Mi1hNDAyLWYwZmRjYzg5ZjNjYiIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6Ijk1NjIxYjQzIn0.BanVRpRKEu2YVtVj202_R4pYlV5ZxHHu-O05WqkZlLvNVRQhpBKZgntD2ZRWU1Zss_d6fTpVysrwq7C7RTfHyQ'
             })
             .then(editor => {
                 // Store editor instance

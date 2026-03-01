@@ -19,10 +19,10 @@
 @endphp
 
 <div id="{{ $id }}" class="fixed inset-0 z-50 overflow-y-auto {{ $show ? '' : 'hidden' }}" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-        <!-- Background overlay -->
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" {{ $closeOnBackdrop ? 'onclick="closeModal(\'' . $id . '\')"' : '' }}></div>
+    <!-- Background overlay -->
+    <div class="absolute inset-0 z-0 bg-gray-500 opacity-50 transition-opacity" aria-hidden="true" {{ $closeOnBackdrop ? 'onclick="closeModal(\'' . $id . '\')"' : '' }}></div>
 
+    <div class="relative z-10 flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <!-- This element is to trick the browser into centering the modal contents. -->
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 

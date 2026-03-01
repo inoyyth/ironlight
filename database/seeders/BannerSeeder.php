@@ -31,7 +31,6 @@ class BannerSeeder extends Seeder
             ]
         );
 
-
         $this->command->info('Banner seeder completed successfully!');
     }
 }
