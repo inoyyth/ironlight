@@ -46,17 +46,20 @@
                     <x-card hover="true" theme="warning">
                         <div class="flex flex-col gap-2">
                             <div class="text-2xl font-bold">
-                                Workforce Time Tracking App
+                                {{ $solution[0]->title }}
                             </div>
                             <div class="text-sm">
-                                A comprehensive digital solution designed to monitor employee attendance, manage shift schedules, and generate accurate payroll data in real time.
+                                {{ $solution[0]->description }}
                             </div>
                         </div>
                     </x-card>
                     <div class="text-white py-4">
                         <ul class="list-none text-2xl flex flex-col gap-2">
-                            <li class="border-b border-white py-8">Worktime Analytics Dashboard</li>
-                            <li class="border-b border-white py-8">HR Operations Automation Platform</li>
+                            @foreach($solution as $sol)
+                            @if($sol->id > 1)
+                                <li class="border-b border-white py-8">{{ $sol->title }}</li>
+                            @endif
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -125,12 +128,9 @@
                 What we are good at
             </h2>
             <div class="pt-10 grid grid-cols-2 gap-4 lg:flex lg:flex-wrap lg:justify-center lg:items-center lg:gap-4 lg:max-w-120">
-                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">React</a>
-                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">PHP/Laravel</a>
-                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">Native apps</a>
-                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">eCommerce</a>
-                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">B2B integrations</a>
-                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">Telcom</a>
+                @foreach($tech as $tech)
+                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">{{ $tech->title }}</a>
+                @endforeach
             </div>
         </div>
     </div>

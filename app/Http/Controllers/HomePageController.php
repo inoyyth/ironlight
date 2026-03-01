@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Stat;
 use App\Models\Banner;
+use App\Models\Tech;
+use App\Models\Solution;
 use Illuminate\Support\Facades\Redis;
 
 class HomePageController extends Controller
@@ -18,14 +20,19 @@ class HomePageController extends Controller
     {
         $banner = Banner::select('id', 'title', 'description')->first();
         $stats = Stat::select('id', 'name', 'value', 'description')->get();
+        $tech = Tech::select('id', 'title', 'url')->get();
+        $solution = Solution::select('id', 'title', 'description')->get();
 
         $contactSettings = Redis::get('contact_settings');
         $contactData = $contactSettings ? json_decode($contactSettings, true) : [];
+        
         
         return view('web.home', [
             'banner' => $banner,
             'stats' => $stats,
             'contactData' => $contactData,
+            'tech' => $tech,
+            'solution' => $solution,
         ]);
     }
 
