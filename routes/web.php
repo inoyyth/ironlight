@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ImageUploadController;
 use App\Http\Controllers\Admin\StatController;
+use App\Http\Controllers\Admin\ContactController;
 
 // Web Routes
 Route::get('/', [HomePageController::class, 'index'])->name('home');
@@ -32,6 +33,13 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
         Route::get('/', [SeoController::class, 'index'])->name('index');
         Route::post('/', [SeoController::class, 'update'])->name('update');
     });
+    
+    // contact routes
+    Route::middleware('auth:admin')->prefix('contacts')->name('contacts.')->group(function () {
+        Route::get('/', [ContactController::class, 'index'])->name('index');
+        Route::post('/', [ContactController::class, 'update'])->name('update');
+    });
+    
     // banner routes
     Route::middleware('auth:admin')->prefix('banners')->name('banners.')->group(function () {
         Route::get('/', [BannerController::class, 'index'])->name('index');
@@ -47,9 +55,5 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
         Route::get('/edit/{id}', [StatController::class, 'edit'])->name('edit');
         Route::post('/store', [StatController::class, 'store'])->name('store');
         Route::delete('/delete/{id}', [StatController::class, 'destroy'])->name('destroy');
-    });
-    // order routes
-    Route::middleware('auth:admin')->prefix('orders')->name('orders.')->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
     });
 });

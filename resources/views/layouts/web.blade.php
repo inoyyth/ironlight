@@ -7,10 +7,11 @@
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <!-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> -->
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
     
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <!-- Meta Tags -->
     <meta name="description" content="{{ seo('meta_description') }}">
@@ -18,8 +19,7 @@
     <meta name="og:title" content="{{ seo('og_title') }}">
     <meta name="og:description" content="{{ seo('og_description') }}">
     <meta name="og:image" content="{{ seo('og_image') }}">
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta name="robots" content="{{ seo('meta_robots') ?? 'index,follow' }}">
     
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

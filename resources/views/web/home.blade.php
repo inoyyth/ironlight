@@ -125,29 +125,29 @@
                 What we are good at
             </h2>
             <div class="pt-10 grid grid-cols-2 gap-4 lg:flex lg:flex-wrap lg:justify-center lg:items-center lg:gap-4 lg:max-w-120">
-                <div class="bg-black border border-white text-white px-4 py-2 text-center">React</div>
-                <div class="bg-black border border-white text-white px-4 py-2 text-center">PHP/Laravel</div>
-                <div class="bg-black border border-white text-white px-4 py-2 text-center">Native apps</div>
-                <div class="bg-black border border-white text-white px-4 py-2 text-center">eCommerce</div>
-                <div class="bg-black border border-white text-white px-4 py-2 text-center">B2B integrations</div>
-                <div class="bg-black border border-white text-white px-4 py-2 text-center">Telcom</div>
+                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">React</a>
+                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">PHP/Laravel</a>
+                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">Native apps</a>
+                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">eCommerce</a>
+                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">B2B integrations</a>
+                <a href="" class="bg-black border border-white text-white px-4 py-2 text-center">Telcom</a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="relative pt-10 pb-10 lg:pt-[40px] lg:pb-20 bg-black bg-no-repeat bg-contain bg-bottom lg:bg-no-repeat lg:bg-cover" style="background-image:url('{{ asset('images/contact_bg.png') }}')">
+<section id="contact" class="relative pt-10 pb-10 lg:pt-[40px] lg:pb-20 bg-black bg-no-repeat bg-contain bg-bottom lg:bg-no-repeat lg:bg-contain" style="background-image:url('{{ asset('images/contact_bg.png') }}')">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="pt-20 flex flex-col gap-6">
             <div class="text-white text-5xl font-bold text-center">
                 Contact
             </div>
             <div class="text-white text-lg text-center">
-                If the work is important, start with a conversation.
+                {{ $contactData['subtitle'] ?? '' }}
             </div>
             <div class="text-white text-lg text-center pt-5 border-b border-[#F9B236] w-auto mx-auto pl-6 pr-6 pb-2">
-                hello@ironlight.ee
+                {{ $contactData['email'] ?? 'hello@ironlight.ee' }}
             </div>
         </div>
     </div>
@@ -159,7 +159,7 @@
         <div class="flex flex-col gap-6 items-start justify-start lg:items-center lg:flex-row">
             <div class="flex-1 lg:flex-[1.5] flex flex-col justify-start items-start gap-4">
                 <img src="{{ asset('images/logo_2.png') }}" alt="ironlight" width="158" height="52"/>
-                <p>Senior technical delivery</p>
+                <p>{{ $contactData['job_title'] ?? '' }}</p>
                 <div class="flex items-center gap-2">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <mask id="mask0_4038_3604" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -171,22 +171,24 @@
                         </g>
                     </svg>
                     <span>
-                        hello@ironlight.ee
+                        {{ $contactData['email'] ?? 'hello@ironlight.ee' }}
                     </span>
                 </div>
             </div>
             <div class="flex-1 flex flex-col gap-4">
-                <p>We are a senior-led team focused on technical delivery and clearly defined engagements. Our work prioritizes scope discipline, practical decision-making, and long-term reliability.</p>
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_4005_874)">
-                    <path d="M25.9273 0H2.06719C0.924219 0 0 0.902344 0 2.01797V25.9766C0 27.0922 0.924219 28 2.06719 28H25.9273C27.0703 28 28 27.0922 28 25.982V2.01797C28 0.902344 27.0703 0 25.9273 0ZM8.30703 23.8602H4.15078V10.4945H8.30703V23.8602ZM6.22891 8.67344C4.89453 8.67344 3.81719 7.59609 3.81719 6.26719C3.81719 4.93828 4.89453 3.86094 6.22891 3.86094C7.55781 3.86094 8.63516 4.93828 8.63516 6.26719C8.63516 7.59062 7.55781 8.67344 6.22891 8.67344ZM23.8602 23.8602H19.7094V17.3633C19.7094 15.8156 19.682 13.8195 17.5492 13.8195C15.3891 13.8195 15.0609 15.5094 15.0609 17.2539V23.8602H10.9156V10.4945H14.8969V12.3211H14.9516C15.5039 11.2711 16.8602 10.1609 18.8781 10.1609C23.0836 10.1609 23.8602 12.9281 23.8602 16.5266V23.8602Z" fill="black"/>
-                    </g>
-                    <defs>
-                    <clipPath id="clip0_4005_874">
-                    <rect width="28" height="28" fill="white"/>
-                    </clipPath>
-                    </defs>
-                </svg>
+                <p>{{ $contactData['description'] ?? '' }}</p>
+                <a href="{{ $contactData['linkedin'] ?? '' }}" class="max-w-fit">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_4005_874)">
+                        <path d="M25.9273 0H2.06719C0.924219 0 0 0.902344 0 2.01797V25.9766C0 27.0922 0.924219 28 2.06719 28H25.9273C27.0703 28 28 27.0922 28 25.982V2.01797C28 0.902344 27.0703 0 25.9273 0ZM8.30703 23.8602H4.15078V10.4945H8.30703V23.8602ZM6.22891 8.67344C4.89453 8.67344 3.81719 7.59609 3.81719 6.26719C3.81719 4.93828 4.89453 3.86094 6.22891 3.86094C7.55781 3.86094 8.63516 4.93828 8.63516 6.26719C8.63516 7.59062 7.55781 8.67344 6.22891 8.67344ZM23.8602 23.8602H19.7094V17.3633C19.7094 15.8156 19.682 13.8195 17.5492 13.8195C15.3891 13.8195 15.0609 15.5094 15.0609 17.2539V23.8602H10.9156V10.4945H14.8969V12.3211H14.9516C15.5039 11.2711 16.8602 10.1609 18.8781 10.1609C23.0836 10.1609 23.8602 12.9281 23.8602 16.5266V23.8602Z" fill="black"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_4005_874">
+                        <rect width="28" height="28" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>

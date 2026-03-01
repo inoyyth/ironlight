@@ -76,7 +76,7 @@ class BannerController extends Controller
             $banner->save();
             
             return redirect()
-                ->route('admin.banner.index')
+                ->route('admin.banners.index')
                 ->with('success', 'Banner updated successfully!');
                 
         } catch (\Exception $e) {

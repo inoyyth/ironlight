@@ -8,7 +8,7 @@
                         <!-- <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center"> -->
                            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-full h-full object-contain">
                         <!-- </div> -->
-                        <span class="text-xl font-semibold text-gray-900">IronLight</span>
+                        <!-- <span class="text-xl font-semibold text-gray-900">IronLight</span> -->
                     </a>
                 </div>
 
@@ -22,7 +22,7 @@
                 <div class="hidden md:flex items-center space-x-4">
                     @guest
                         <!-- <a href="" class="text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors">Sign In</a> -->
-                        <a href="" class="bg-white text-black px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">Contact Us</a>
+                        <a href="#contact" class="bg-white text-black px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">Contact Us</a>
                     @else
                         <div class="relative">
                             <button onclick="toggleUserMenu()" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
@@ -60,10 +60,7 @@
             <!-- Mobile Navigation -->
             <div id="mobileMenu" class="hidden md:hidden pb-4">
                 <div class="flex flex-col space-y-2">
-                    <a href="" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">About</a>
-                    <a href="" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Services</a>
-                    <a href="" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    <a href="#contact" class="text-white hover:text-blue-600 px-3 py-2 text-sm font-medium">Contact Us</a>
                     @guest
                         <div class="pt-2 border-t border-gray-200">
                             <a href="" class="block text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Sign In</a>

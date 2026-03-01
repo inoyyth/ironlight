@@ -7,8 +7,8 @@ A modern Laravel application showcasing senior technical delivery with clean arc
 
 Demo site:
 
-- homepage: `https://ironlight.fastevalbpe.com`
-- admin: `https://ironlight.fastevalbpe.com/admin/login`
+- homepage: `https://testironlight.fastevalbpe.com`
+- admin: `https://testironlight.fastevalbpe.com/admin/login`
 - credentials: `admin@ironlight.com` / `password123`
 
 ## Tech Stack
@@ -174,7 +174,7 @@ composer run test
 ### Templating Approach
 
 - **Blade Templates**: Laravel's native templating engine for server-side rendering
-- **Component-Based Architecture**: Reusable Blade components (`x-card`, `x-button`, etc) for consistent UI
+- **Component-Based Architecture**: Reusable Blade components (`x-card`, `x-button`, `alert`, etc) for consistent UI
 - **Tailwind CSS Integration**: Utility-first CSS approach for rapid styling
 - **Responsive Design**: Mobile-first approach with Tailwind's responsive utilities
 
