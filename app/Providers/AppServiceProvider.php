@@ -20,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (config('app.env') === 'production') {
+            \URL::forceScheme('https');
+        }
         // Register Blade components
         Blade::component('button', \App\View\Components\Button::class);
         Blade::component('card', \App\View\Components\Card::class);
