@@ -45,7 +45,7 @@
                 <div>
                     <x-card hover="true" theme="warning">
                         <div class="flex flex-col gap-2">
-                            <div class="text-2xl font-bold">
+                            <div class="text-lg lg:text-2xl font-bold">
                                 {{ $solution[0]->title }}
                             </div>
                             <div class="text-sm">
@@ -54,10 +54,10 @@
                         </div>
                     </x-card>
                     <div class="text-white py-4">
-                        <ul class="list-none text-2xl flex flex-col gap-2">
+                        <ul class="list-none flex flex-col gap-2">
                             @foreach($solution as $sol)
                             @if($sol->id > 1)
-                                <li class="border-b border-white py-8">{{ $sol->title }}</li>
+                                <li class="border-b border-white py-8 text-lg lg:text-2xl">{{ $sol->title }}</li>
                             @endif
                             @endforeach
                         </ul>
@@ -74,7 +74,7 @@
                 <h3 class="sm:text-4xl md:text-base font-bold text-[#F9B236] mb-4">
                     How it feels to work with us 
                 </h3>
-                <div class="flex flex-col gap-2 text-white text-2xl">
+                <div class="flex flex-col gap-2 text-white text-lg lg:text-2xl">
                     <p>Clear scope</p>
                     <p>Calm communication</p>
                     <p>Decisions made once, not daily</p>
@@ -100,7 +100,7 @@
                 <h3 class="text-2xl lg:text-base font-bold text-[#F9B236]">
                     Who this is for?
                 </h3>
-                <div class="flex flex-col gap-2 text-white text-2xl">
+                <div class="flex flex-col gap-2 text-white text-lg lg:text-2xl">
                     <p>Clear scope</p>
                     <p>Calm communication</p>
                     <p>Decisions made once, not daily</p>
