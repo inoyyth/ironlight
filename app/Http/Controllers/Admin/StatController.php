@@ -4,14 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Stat;
+use App\Services\StatService;
 use Illuminate\Support\Facades\Auth;
 
 class StatController extends Controller
 {
+    protected $statService;
+
+    public function __construct(StatService $statService)
+    {
+        $this->statService = $statService;
+    }
+
     public function index()
     {
-        $stats = Stat::select('id', 'name', 'value', 'description')->get();
+        $stats = $this->statService->getAllStats();
        
         return view('admin.pages.stats.index', [
             'title' => 'Admin Stats - IronLight',
@@ -29,7 +36,7 @@ class StatController extends Controller
     }
 
     public function edit($id) {
-        $stat = Stat::find($id);
+        $stat = $this->statService->getStatById($id);
         
         return view('admin.pages.stats.form', [
             'title' => 'Admin Stats - IronLight',
@@ -39,47 +46,26 @@ class StatController extends Controller
     }
 
     public function store(Request $request) {
-        // request validation
-        $request->validate([
-            'name' => 'required',
-            'value' => 'required',
-            'description' => 'required',
-        ],
-        [
-            'name.required' => 'Stat name is required',
-            'value.required' => 'Stat value is required',
-            'description.required' => 'Stat description is required',
-        ]);
-
-        // check if id exists
-        if ($request->id) {
-            // update
-            $stat = Stat::find($request->id);
-            $stat->name = $request->name;
-            $stat->value = $request->value;
-            $stat->description = $request->description;
-            $stat->save();
-        } else {
-            // create
-            $stat = new Stat();
-            $stat->name = $request->name;
-            $stat->value = $request->value;
-            $stat->description = $request->description;
-            $stat->save();
-        }
+        $id = $request->id;
+        $result = $this->statService->saveStat($request, $id);
         
-        return redirect()->route('admin.stats.index')->with('success', 'Stat saved successfully!');
+        if ($result['success']) {
+            return redirect()->route('admin.stats.index')->with('success', $result['message']);
+        }
+
+        return back()
+            ->withInput()
+            ->with('error', $result['message']);
     }
 
     public function destroy($id)
     {
-        $stat = Stat::find($id);
+        $result = $this->statService->deleteStat($id);
         
-        if ($stat) {
-            $stat->delete();
-            return redirect()->route('admin.stats.index')->with('success', 'Stat deleted successfully!');
+        if ($result['success']) {
+            return redirect()->route('admin.stats.index')->with('success', $result['message']);
         }
-        
-        return redirect()->route('admin.stats.index')->with('error', 'Stat not found!');
+
+        return redirect()->route('admin.stats.index')->with('error', $result['message']);
     }
 }

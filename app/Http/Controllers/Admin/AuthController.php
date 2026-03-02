@@ -5,14 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use App\Services\AuthService;
 
 class AuthController extends Controller
 {
-    public function __construct()
+    protected $authService;
+
+    public function __construct(AuthService $authService)
     {
-        
+        $this->authService = $authService;
     }
 
     /**
@@ -21,7 +22,7 @@ class AuthController extends Controller
     public function showLoginForm()
     {
         // If admin is already logged in, redirect to dashboard
-        if (Auth::guard('admin')->check()) {
+        if ($this->authService->isAdminAuthenticated()) {
             return redirect()->route('admin.dashboard');
         }
 
@@ -36,35 +37,26 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required|string|min:6',
-        ], [
-            'email.required' => 'Email address is required',
-            'email.email' => 'Please provide a valid email address',
-            'password.required' => 'Password is required',
-            'password.min' => 'Password must be at least 6 characters',
-        ]);
-
-        if ($validator->fails()) {
+        $validation = $this->authService->validateLogin($request);
+        
+        if (!$validation['success']) {
             return back()
-                ->withErrors($validator)
+                ->withErrors($validation['errors'])
                 ->withInput();
         }
 
         $credentials = $request->only('email', 'password');
+        $result = $this->authService->attemptLogin($credentials);
 
-        if (Auth::guard('admin')->attempt($credentials)) {
+        if ($result['success']) {
             $request->session()->regenerate();
             
             return redirect()->intended(route('admin.dashboard'))
-                ->with('success', 'Welcome back, ' . Auth::guard('admin')->user()->name . '!');
+                ->with('success', $result['message']);
         }
 
         return back()
-            ->withErrors([
-                'email' => 'The provided credentials do not match our records.',
-            ])
+            ->withErrors($result['errors'])
             ->withInput();
     }
 
@@ -73,12 +65,9 @@ class AuthController extends Controller
      */
     public function logout(Request $request)
     {
-        Auth::guard('admin')->logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        $result = $this->authService->logout($request);
 
         return redirect()->route('admin.login')
-            ->with('success', 'You have been logged out successfully.');
+            ->with($result['success'] ? 'success' : 'error', $result['message']);
     }
 }

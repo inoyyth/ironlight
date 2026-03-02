@@ -3,14 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Stat;
-use App\Models\Banner;
 use App\Models\Tech;
 use App\Models\Solution;
+use App\Services\BannerService;
+use App\Services\ContactService;
+use App\Services\StatService;
+use App\Services\OtherService;
 use Illuminate\Support\Facades\Redis;
 
 class HomePageController extends Controller
 {
+    protected $bannerService;
+    protected $contactService;
+    protected $statService;
+    protected $otherService;
+
+    public function __construct(
+        BannerService $bannerService,
+        ContactService $contactService,
+        StatService $statService,
+        OtherService $otherService
+    ) {
+        $this->bannerService = $bannerService;
+        $this->contactService = $contactService;
+        $this->statService = $statService;
+        $this->otherService = $otherService;
+    }
     /**
      * Display the home page.
      *
@@ -18,21 +36,17 @@ class HomePageController extends Controller
      */
     public function index()
     {
-        $banner = Banner::select('id', 'title', 'description')->first();
-        $stats = Stat::select('id', 'name', 'value', 'description')->get();
-        $tech = Tech::select('id', 'title', 'url')->get();
-        $solution = Solution::select('id', 'title', 'description')->get();
-
-        $contactSettings = Redis::get('contact_settings');
-        $contactData = $contactSettings ? json_decode($contactSettings, true) : [];
-        
+        $banner = $this->bannerService->getBanner();
+        $stats = $this->statService->getHomepageStats();
+        $homepageData = $this->otherService->getHomepageData();
+        $contactData = $this->contactService->getContactSettings();
         
         return view('web.home', [
             'banner' => $banner,
             'stats' => $stats,
             'contactData' => $contactData,
-            'tech' => $tech,
-            'solution' => $solution,
+            'tech' => $homepageData['tech'],
+            'solution' => $homepageData['solution'],
         ]);
     }
 
